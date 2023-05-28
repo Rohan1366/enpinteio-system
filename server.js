@@ -7,6 +7,7 @@ import authRoutes from "./routes/authRoute.js"
 import cors from 'cors'
 import AccountRouter from './controllers/accountController.js'
 import path from 'path'
+import {fileURLToPath} from'url'
 //rest object
 const app = express();
 
@@ -15,6 +16,8 @@ dotenv.config();
 
 // database config
 connectDB()
+const __filename=fileURLToPath(import.meta.url)
+const __dirname=path.dirname(__filename)
 
 // static 
 app.use(express.static(path.join(__dirname,'./client/build')))
